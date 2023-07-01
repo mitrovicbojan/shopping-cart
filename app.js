@@ -1,6 +1,7 @@
-function startFunc(button) {
-  let wholeBtn = button.innerText;
+function testing() {
+  let link2 = document.querySelector(".second-link");
+  let link1 = link2.previousElementSibling;
+  let link3 = link2.nextElementSibling;
 
-  let msg = document.querySelector("#hello");
-  msg.innerText = wholeBtn;
+  console.log(link1.innerText);
 }
