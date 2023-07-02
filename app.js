@@ -1,7 +1,28 @@
-function testing() {
-  let link2 = document.querySelector(".second-link");
-  let link1 = link2.previousElementSibling;
-  let link3 = link2.nextElementSibling;
+function validating() {
+  let input = document.querySelector("#email");
+  let valInput = input.value;
+  if (valInput.includes("@") && valInput.includes(".")) {
+    let positionAt = valInput.indexOf("@");
+    let positionDot = valInput.indexOf(".");
+    let inbtw = valInput.substring(positionAt + 1, positionDot);
 
-  console.log(link1.innerText);
+    if (inbtw.length > 0) {
+      let beforeAt = valInput.substring(0, positionAt);
+
+      if (beforeAt.length > 2) {
+        let afterDot = valInput.substring(positionDot + 1, valInput.length);
+        console.log(afterDot);
+        if (afterDot.length > 2) {
+          console.log("Dobro je");
+        }
+      }
+    } else {
+      console.log("nije dobro");
+    }
+
+    console.log(inbtw);
+  } else {
+    console.log("nije validan email");
+  }
+  console.log(valInput);
 }
