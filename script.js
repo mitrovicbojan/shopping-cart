@@ -37,6 +37,5 @@ function removeFromCart(element) {
       vege.querySelector(".actions button").removeAttribute("disabled");
       vege.querySelector(".actions button").innerText = "Dodaj";
     }
-    console.log(vege);
   });
 }
