@@ -11,12 +11,20 @@ function addToCart(element) {
     price = price.substring(1);
     let total = parseInt(price) * Number(quantity);
     allTotal += total;
-    cartItems.innerHTML += `<div class="cart-single-item"><h3>${name}</h3><p>$${price} x ${quantity} = $${total}</p><button>Ukloni</button></div>`;
+    cartItems.innerHTML += `<div class="cart-single-item"><h3>${name}</h3><p>$${price} x ${quantity} = $<span>${total}</span></p><button class="remove-item" onclick="removeFromCart(this)">Ukloni</button></div>`;
 
-    document.querySelector(".total").innerText = `Total: ${allTotal}`;
+    document.querySelector(".total").innerText = `Total: $${allTotal}`;
     element.innerText = "Dodato";
     element.setAttribute("disabled", "true");
   } else {
     alert("Odaberite kolicinu.");
   }
+}
+
+function removeFromCart(element) {
+  let mainEl = element.closest(".cart-single-item");
+  let price = mainEl.querySelector("p span").innerText;
+  allTotal -= parseInt(price);
+  document.querySelector(".total").innerText = `Total: $${allTotal}`;
+  mainEl.remove();
 }
